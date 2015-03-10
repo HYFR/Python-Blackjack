@@ -132,12 +132,12 @@ class Game:
 					print "hit"
 					self.table.deal_to_player()
 					self.table.player_score()
-					if not self.table.player_score() < self.table.player_cap:
-						self.dealer_won_text()
 				elif x > 550 and y > 250:
 					print "stay"
 					self.table.deal_to_dealer()
 					self.table.dealer_score()
+			else:
+				self.dealer_won_text()
 				
 				
 		self.mouse_click()
