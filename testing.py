@@ -1,3 +1,4 @@
+#!/usr/bin/env python2
 from random import randint
 import pygame
 from pygame.locals import *
@@ -13,7 +14,7 @@ class Table(object):
 	def __init__(self):
 		self.score = 0
 
-	player_cap = 21
+	player_cap = 21 
 	dealer_cap = 17	
 	
 	def deal_to_player(self):
@@ -71,6 +72,7 @@ class Game:
 		self.font = pygame.font.SysFont('Arial', 25)
 		pygame.display.set_caption("Python Blackjack Game")
 		self.screen = pygame.display.set_mode((653, 300))
+		self.winner = None
 		
 		
 	def on_init(self):
@@ -115,28 +117,32 @@ class Game:
 		screen.blit(background, (0, 0))	
 
 	def player_won_text(self):
-		self.screen.blit(self.font.render("Player Won!", True, (0, 0, 0)), (293, 160))
+		self.winner = "Player"
 		
 	def dealer_won_text(self):
-		self.screen.blit(self.font.render("Dealer Won!", True, (0, 0, 0,)), (293, 160))
+		self.winner = "Dealer"
+
+	def show_winners(self):
+		self.screen.blit(self.font.render("{winner} Won!".format(winner=self.winner), True, (0, 0, 0,)), (293, 160))
 				
 		
 	def on_event(self, event):
 		if event.type == pygame.QUIT:
 			self._running = False
 		elif event.type == pygame.MOUSEBUTTONDOWN:
-			x,y = event.__dict__["pos"]
+			x,y = event.dict["pos"]
 			print x,y
-			if self.table.player_score() < self.table.player_cap:
+			if self.table.player_score() < Table.player_cap:
 				if x < 100 and y > 250:
 					print "hit"
 					self.table.deal_to_player()
-					self.table.player_score()
 				elif x > 550 and y > 250:
 					print "stay"
 					self.table.deal_to_dealer()
-					self.table.dealer_score()
-			else:
+
+			if self.table.player_score() >= Table.player_cap:
+				self.player_won_text()
+			elif self.table.dealer_score() >= Table.dealer_cap:
 				self.dealer_won_text()
 				
 				
@@ -156,9 +162,12 @@ class Game:
 			self.background_image()
 			self.display_player_and_dealer_score()
 			self.display_player_and_dealer_cards()
-			self.left_box()
-			self.right_box()
-			self.addText()
+			if self.winner:
+				self.show_winners()
+			else:
+				self.left_box()
+				self.right_box()
+				self.addText()
 			pygame.display.flip()
 		self.on_cleanup()
 
