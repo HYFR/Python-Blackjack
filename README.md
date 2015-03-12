@@ -1,3 +1,4 @@
+#Blackjack game using Python
 This is a blackjack game created using my add'l lanuage, python.
 The game works the same as the one in Ruby with a few exceptions.
 I have yet to implement a 'first_hit' method which automatically deals the player two cards
