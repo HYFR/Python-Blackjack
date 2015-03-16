@@ -3,8 +3,9 @@ This blackjack game was built using Python.
 
 
 Roadblocks:
--	I created my game using the blackjack table background, but I do not know how to make the
-game work without it. The game background defaults to all black but the background does not 
+-	I created my game using the blackjack table background image, but I do not know how to make the
+game work without it. I cannot use the background image because I do not have permission from its
+owners. The game background defaults to all black but the background does not 
 blit anymore. The game still works, but whenever I click 'hit' or 'stay' the text overlaps,
 creating a messy-looking game.
 
