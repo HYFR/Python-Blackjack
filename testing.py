@@ -13,6 +13,7 @@ class Table(object):
 
 	def __init__(self):
 		self.score = 0
+		self.first_hit_player()
 
 	player_cap = 21 
 	dealer_cap = 17	
@@ -84,14 +85,14 @@ class Game:
 		
 	def display_player_and_dealer_score(self):
 		self.screen.blit(self.font.render("Player Score: {score}".format(score=self.table.player_score()),
-						 True, (0, 0, 0)), 
+						 True, white), 
 						 (10, 15))
 		self.screen.blit(self.font.render("Dealer Score: {dealers_score}".format(dealers_score=self.table.dealer_score()),
-						 True, (0, 0, 0)),
+						 True, white),
 						 (500, 15))
 	
 	def display_player_and_dealer_cards(self):
-		self.screen.blit(self.font.render("Cards: {cards}".format(cards=self.table.player), True, (0, 0, 0)), (10, 40)), self.screen.blit(self.font.render("Cards: {dealers_cards}".format(dealers_cards=self.table.dealer), True, (0, 0, 0)), (500, 40))
+		self.screen.blit(self.font.render("Cards: {cards}".format(cards=self.table.player), True, white), (10, 40)), self.screen.blit(self.font.render("Cards: {dealers_cards}".format(dealers_cards=self.table.dealer), True, white), (500, 40))
 
 	#White box at bottom left of the screen
 	def left_box(self):
@@ -103,8 +104,8 @@ class Game:
 
 		
 	def addText(self):
-		self.screen.blit(self.font.render('Hit', True, (0, 0, 0)), (35, 265))
-		self.screen.blit(self.font.render('Stay', True, (0, 0, 0)), (580, 265))
+		self.screen.blit(self.font.render('Hit', True, black), (35, 265))
+		self.screen.blit(self.font.render('Stay', True, black), (580, 265))
 		
 	def background_image(self):
 		#initialise screen
@@ -123,7 +124,7 @@ class Game:
 		self.winner = "Dealer"
 
 	def show_winners(self):
-		self.screen.blit(self.font.render("{winner} Won!".format(winner=self.winner), True, (0, 0, 0,)), (293, 160))
+		self.screen.blit(self.font.render("{winner} Won!".format(winner=self.winner), True, white), (293, 160))
 				
 		
 	def on_event(self, event):
@@ -139,6 +140,7 @@ class Game:
 				elif x > 550 and y > 250:
 					print "stay"
 					self.table.deal_to_dealer()
+					
 
 			if self.table.player_score() >= Table.player_cap:
 				self.player_won_text()
