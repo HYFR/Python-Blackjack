@@ -1,17 +1,24 @@
 #Blackjack game using Python
-This is a blackjack game created using my add'l lanuage, Python.
-The game works the same as the one in Ruby with a few exceptions.
-First, the game begins when you click on the 'hit' button. This game doesn't do the 
-first two hits automatically.
+This blackjack game was built using Python.
 
-I have yet to implement a 'first_hit' method which automatically deals the player two cards
-to begin the game. 
 
-The same 'first_hit' method has not been applied to the dealer.
+Roadblocks:
+-	I created my game using the blackjack table background, but I do not know how to make the
+game work without it. The game background defaults to all black but the background does not 
+blit anymore. The game still works, but whenever I click 'hit' or 'stay' the text overlaps,
+creating a messy-looking game.
 
-The game runs, but it does not run well.
+-	I have not finished the game logic. As of now, the player wins if he breaches the 21-point
+cap. The dealer wins if he has over 18 points. I plan on creating two helper functions that will
+hold certain conditionals that compares both sets of points and determines the winner.
 
-Text appears when the 21 point cap has been breached, clarifying who won.
+-	Python unit tests. I have done a bit of research but have not gotten around to implementing
+Python's built in testing.
 
-The point system is a bit off. For example, the player with the most points win, regardless 
-of the fact that the points have gone higher than 21.
+
+
+Test Spikes:
+-	The hardest part was remembering to identify what were methods and what were variables. When
+I first started developing I had no idea why the program wouldn't run (I usually don't know why
+my programs run, but I was more confused with Python). Turns out I had to pass 'self' as an argument
+to every method. It was a bit of a drag, but I developed a habit of doing it in Python.
