@@ -234,43 +234,7 @@ class Game:
 		self.on_cleanup()
 
 		
-class MyTest(unittest.TestCase):
-
-	
-	def setUp(self):
-		""" Setting up for the test """
-		print "FooTest:setUP_:begin"
-		
-		testName = self.shortDescription()
-		if (testName == "Test routine A"):
-			print "setting up for test A"
-			
-		print "FooTest:setUp_:end"
-		
-	def tearDown(self):
-		""" Cleaning up after the test """
-		print "FooTest:tearDown_:begin"
-		
-		testName = self.shortDescription()
-		if (testName == "Test routine A"):
-			print "cleaning up after test A"
-			
-		print "FooTest:tearDown_:end"
-	
-	def test_game(self):
-		self.table = Table()
-		
-		deal_to_player = self.table.deal_to_player()
-		deal_to_dealer =  self.table.deal_to_dealer()
-		
-		
-		#self.assertEqual((1..10), deal_to_player()) expects a number within the range
-		# of 1-10 for the method, deal_to_player
-		
-		#self.assertEqual((1..10), deal_to_dealer()) expects a number within the range
-		# of 1-10 for the method, deal_to_dealer
-		
 if __name__ == '__main__':
 	myGame = Game()
 	myGame.on_execute()
-	unittest.main()
+	#unittest.main()
