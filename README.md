@@ -30,7 +30,7 @@ Prerequisites:
 -	Run the Python file(s) through Powershell
 
 Flaws within my game:
--	I learned as much as I could about Python unit testing in the hour that I had. It is similar
+-	I learned as much as I could about Python unit testing within the hour that I had. It is similar
 to Ruby's unit testing but I was not able to grasp the syntax within the deadline. At the bottom
 of testing.py's file, you will see class MyTest. The comments are what I was trying to accomplish.
 You will see syntax similar to Ruby's unit test, with the expected and desired outcomes displayed.
